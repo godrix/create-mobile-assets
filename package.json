@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "jimp": "^0.16.1",
+    "log-symbols": "^4.0.0",
     "prompts": "^2.4.0"
   }
 }
