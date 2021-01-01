@@ -5,6 +5,10 @@
   "bin": "index.js",
   "description": "Create custom images with screenshots for use in app stores",
   "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development node index.js",
+    "start": "NODE_ENV=production node index.js"
+  },
   "dependencies": {
     "jimp": "^0.16.1",
     "prompts": "^2.4.0"

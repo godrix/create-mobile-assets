@@ -8,10 +8,10 @@ const PATH_ASSETS_IOS_TABLET_12_2ND = `${path.join(__dirname, '..', 'assets', 'i
 const PATH_ASSETS_IOS_TABLET_12_3RD = `${path.join(__dirname, '..', 'assets', 'ios', 'tablet', '12.9_3rd')}`;
 const PATH_ASSETS_ANDROID_DEFAULT = `${path.join(__dirname, '..', 'assets', 'android', 'mobile', 'default')}`;
 
-//const FOLDER_SCREEENSHOT = `${path.join(__dirname, '..', 'screenshot')}`;
-const FOLDER_SCREEENSHOT = `${process.cwd()}`;
-//const PATH_RESULT = `${path.join(__dirname, '..', 'result')}`;
-const PATH_RESULT = `${path.join(process.cwd(), 'result')}`;
+
+const FOLDER_SCREEENSHOT = process.env.NODE_ENV === 'development' ? `${path.join(__dirname, '..', 'screenshot')}` : `${process.cwd()}`;
+const PATH_RESULT = process.env.NODE_ENV === 'development' ? `${path.join(__dirname, '..', 'result')}` : `${path.join(process.cwd(), 'result')}`;
+
 
 
 module.exports.PATH_ASSETS_IOS_MOBILE_6_5 = PATH_ASSETS_IOS_MOBILE_6_5;
