@@ -5,11 +5,30 @@ const {log} = require('../utils/log.js')
 const { FOLDER_SCREEENSHOT, PATH_ASSETS_IOS_MOBILE_6_5, PATH_ASSETS_IOS_MOBILE_5_5, PATH_ASSETS_IOS_TABLET_12_2ND, PATH_ASSETS_IOS_TABLET_12_3RD, PATH_RESULT } = require('../constants');
 
 async function generateMobile_ios_6_5() {
-  console.log('🏗  Creating assets devices 6.5 📱');
-  const bg = await jimp.read(`${PATH_ASSETS_IOS_MOBILE_6_5}/bg.png`);
+  log('Creating assets devices 6.5 📱');
+  const backgroud = await jimp.read(`${PATH_ASSETS_IOS_MOBILE_6_5}/bg.png`);
+
   const device = await jimp.read(`${PATH_ASSETS_IOS_MOBILE_6_5}/device.png`);
-  const filesMobile = []
-  const pathPrintMobile = await getFilesPath(FOLDER_SCREEENSHOT)
+
+  const filesMobile = [];
+
+  const pathPrintMobile = await getFilesPath(FOLDER_SCREEENSHOT);
+
+  const backgroudSize = [backgroud.bitmap.width, backgroud.bitmap.height];
+
+  const deviceSize = [device.bitmap.width, device.bitmap.height];
+
+  const screenSize = [942, 2016];
+
+  const imageCenter = [
+    backgroudSize[0] / 2 - deviceSize[0] / 2, 
+    backgroudSize[1] / 2 - deviceSize[1] / 2
+  ];
+
+  const deviceFrame = [
+    backgroudSize[0] / 2 - (deviceSize[0] - (deviceSize[0] - screenSize[0])) / 2, 
+    backgroudSize[1] / 2 - (deviceSize[1] - (deviceSize[1] - screenSize[1])) / 2
+  ];
 
   for (const path of pathPrintMobile) {
     filesMobile.push(jimp.read(`${FOLDER_SCREEENSHOT}/${path}`))
@@ -17,16 +36,16 @@ async function generateMobile_ios_6_5() {
 
   Promise.all(filesMobile).then(() => {
     return Promise.all(filesMobile)
-  }).then((data) => {
-    for (let index = 0; index < data.length; index++) {
-      data[index].resize(950, jimp.AUTO);
-      bg.composite(data[index], 150, 120)
-      bg.composite(device, 0, 100)
-      bg.normalize()
-      bg.write(`${PATH_RESULT}/ios/mobile-6.5/mobile6_5-${index}.jpg`);
-      console.log(`[${index + 1}/${data.length}] Asset mobile6_5-${index}.jpg created`);
+  }).then((screenshots) => {
+    for (let index = 0; index < screenshots.length; index++) {
+      screenshots[index].resize(screenSize[0], screenSize[1]);
+      backgroud.composite(screenshots[index], deviceFrame[0], deviceFrame[1]);
+      backgroud.composite(device, imageCenter[0], imageCenter[1]);
+      backgroud.normalize()
+      backgroud.write(`${PATH_RESULT}/ios/mobile-6.5/mobile6_5-${index}.jpg`);
+      console.log(`[${index + 1}/${screenshots.length}] Asset mobile6_5-${index}.jpg created`);
     }
-    console.log('✅  Assets devices 6.5 completed');
+    log('Assets devices 6.5 completed', 'success');
   })
 }
 

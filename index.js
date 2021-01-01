@@ -19,7 +19,7 @@ async function main() {
       break;
     case 2:
       await generateMobile_ios_5_5();
-      // await generateMobile_ios_6_5();
+      await generateMobile_ios_6_5();
       // await generateTablet_ios_12_9_2nd();
       // await generateTablet_ios_12_9_3rd();
       break;
