@@ -1,6 +1,6 @@
 {
   "name": "create-mobile-assets",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "bin": "index.js",
   "description": "Create custom images with screenshots for use in app stores",

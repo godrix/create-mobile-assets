@@ -37,7 +37,7 @@ npx create-mobile-assets
 ## ✅ To Do
 
 - [ ] Automated testing
-- [ ] Background colorization
+- [X] Background colorization
 - [ ] Inserting text in images
 - [ ] Add more android devices
 
