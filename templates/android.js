@@ -1,39 +1,14 @@
-const jimp = require('jimp');
+const { log } = require('../utils/log.js');
 
-const { getFilesPath } = require('../utils')
+const { PATH_ASSETS_ANDROID_DEFAULT } = require('../constants');
 
-const { PATH_ASSETS_ANDROID_DEFAULT, FOLDER_SCREEENSHOT, PATH_RESULT } = require('../constants');
+const { generateAssets } = require('../lib');
 
 async function generateMobile_android_default() {
-  console.log('🏗  Creating assets devices android 📱');
-  const bg = await jimp.read(`${PATH_ASSETS_ANDROID_DEFAULT}/bg.png`);
-  // bg.color([
-  //   { apply: 'mix', params: ['#8e44ad', 100] }
-  // ])
 
-  const device = await jimp.read(`${PATH_ASSETS_ANDROID_DEFAULT}/device.png`);
-  const filesMobile = []
-  const pathPrintMobile = await getFilesPath(FOLDER_SCREEENSHOT)
+  log('Creating assets devices android 📱');
 
-
-  for (const path of pathPrintMobile) {
-    filesMobile.push(jimp.read(`${FOLDER_SCREEENSHOT}/${path}`));
-  }
-
-  Promise.all(filesMobile).then((data) => {
-    return Promise.all(filesMobile)
-  }).then((data) => {
-    for (let index = 0; index < data.length; index++) {
-      data[index].resize(1100, 1950);
-      bg.composite(data[index], 80, 500);
-      bg.composite(device, 0, 400)
-
-      bg.write(`${PATH_RESULT}/android/mobile-default/android-${index}.jpg`);
-      console.log(`[${index + 1}/${data.length}] Asset android-${index}.jpg created`);
-    }
-    console.log('✅  Assets devices android completed');
-
-  })
+  await generateAssets(PATH_ASSETS_ANDROID_DEFAULT, PATH_ASSETS_ANDROID_DEFAULT, [1090, 1940], 'android/mobile-default', 'android', true);
 }
 
 
