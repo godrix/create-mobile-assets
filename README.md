@@ -23,7 +23,7 @@
 
 
 <h1 align="center">
-    <img alt="Aplication example" title="Aplication" src="https://i.imgur.com/ATlniUm.gif" width="500px" />
+<a href="https://imgur.com/ATlniUm"><img src="https://i.imgur.com/ATlniUm.gif" alt="Aplication example" title="Aplication" width="500px"/></a>
 </h1>
 
 > Automates the generation of mobile assets. Automatically generates screen images for send to stores.
