@@ -26,13 +26,15 @@
     <img alt="Aplication example" title="Aplication" src="https://i.imgur.com/ATlniUm.gif" width="500px" />
 </h1>
 
-> tired of making screenshots of each type of smartphone? me too 😆
+> Automates the generation of mobile assets. Automatically generates screen images for send to stores.
 
 ## 💻 Usage
 
 ```sh
 npx create-mobile-assets
 ```
+
+> tired of making screenshots of each type of smartphone? me too 😆
 
 ## ✅ To Do
 
