@@ -24,7 +24,7 @@
 
 <h1 align="center">
 
-![Aplication example](https://i.imgur.com/ATlniUm.gif)
+![Aplication example](https://github.com/godrix/create-mobile-assets/blob/main/.github/example.gif?raw=true)
 
 </h1>
 
