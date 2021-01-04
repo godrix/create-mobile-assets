@@ -23,7 +23,7 @@
 
 
 <h1 align="center">
-    <img alt="Aplication example" title="Aplication" src=".github/example.gif" width="500px" />
+    <img alt="Aplication example" title="Aplication" src="https://i.imgur.com/ATlniUm.gif" width="500px" />
 </h1>
 
 > tired of making screenshots of each type of smartphone? me too 😆
