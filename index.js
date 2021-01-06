@@ -6,7 +6,7 @@ const { generateMobile_ios_5_5, generateMobile_ios_6_5, generateTablet_ios_12_9_
 
 
 async function main() {
-  const choices = {color:'', posotion:0};
+  const choices = {color:'', posotion:0, text:['Olar']};
   switch (await initialChoice()) {
     case 0:
       choices.color = await choiceColor();
