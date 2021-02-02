@@ -4,15 +4,26 @@
   "main": "index.js",
   "bin": "index.js",
   "description": "Automates the generation of mobile assets. Automatically generates screen images for send to stores",
-  "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development node index.js",
     "start": "NODE_ENV=production node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/godrix/create-mobile-assets.git"
+  },
+  "keywords": ["mobile", "mobile-assets", "app-store", "image-generation", "android", "ios", "publish"],
+  "author": "Carlos Gabriel Godri <cggodri@gmail.com> (https://github.com/godrix)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/godrix/create-mobile-assets/issues"
+  },
+  "homepage": "https://github.com/godrix/create-mobile-assets#readme",
   "dependencies": {
     "jimp": "^0.16.1",
     "log-symbols": "^4.0.0",
     "prompts": "^2.4.0"
-  },
-  "keywords": ["mobile", "mobile-assets", "app-store", "image-generation", "android", "ios", "publish"]
+  }
 }
+
+
