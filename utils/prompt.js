@@ -1,14 +1,14 @@
 const prompts = require('prompts');
 
 
-async function initialChoice(){
-  const {mode} = await prompts({
+async function initialChoice() {
+  const { mode } = await prompts({
     type: 'select',
     name: 'mode',
     message: 'Pick a color',
     choices: [
       { title: 'Android e IOS', description: 'Create assets for android and ios', value: 0 },
-      { title: 'Android', description: 'Create assets only android', value:1},
+      { title: 'Android', description: 'Create assets only android', value: 1 },
       { title: 'IOS', description: 'Create assets only ios', value: 2 }
     ],
 
@@ -18,25 +18,25 @@ async function initialChoice(){
   return mode;
 }
 
-async function choiceColor(){
-  const {color} = await prompts({
+async function choiceColor() {
+  const { color } = await prompts({
     type: 'text',
     name: 'color',
     message: 'what is the background color?',
-    initial:'#FFFFFF',
+    initial: '#FFFFFF',
     validate: value => !value.match(/^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/) ? `Only hexadecimal colors are accepted` : true
   });
- 
-  return color; 
+
+  return color;
 }
 
 // val 1 === header show;
-  // val 1.5 === more header show;
-  // val 1.8 === default ;
-  // val 2 === image center;
+// val 1.5 === more header show;
+// val 1.8 === default ;
+// val 2 === image center;
 
-async function choicePosition(){
-  const {position} = await prompts({
+async function choicePosition() {
+  const { position } = await prompts({
     type: 'select',
     name: 'position',
     message: 'Device position',
@@ -48,10 +48,24 @@ async function choicePosition(){
     ],
     initial: 2
   });
- 
-  return position; 
+
+  return position;
+}
+
+async function enterText() {
+  const { value } = await prompts({
+    type: 'list',
+    name: 'value',
+    message: 'separate the texts of each image with a semicolon',
+    initial: '',
+    separator: ';'
+  });
+
+  return value;
+
 }
 
 module.exports.initialChoice = initialChoice;
 module.exports.choiceColor = choiceColor;
 module.exports.choicePosition = choicePosition;
+module.exports.enterText = enterText;
